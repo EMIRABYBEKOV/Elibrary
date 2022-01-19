@@ -4,11 +4,11 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from random import randint
 
-bd_password = '1234'#input("Введите пароль от Базы Данных: ")
-bd_user = 'suluguni'#input("Имя юзера: ")
-
+bd_password = input("Password: ")
+bd_user = input("Username: ")
+bd_name = input("Databasename: ")
 postgres = psycopg2.connect(
-    dbname='mydb', 
+    dbname=f'{bd_name}', 
     user=f'{bd_user}', 
     password=f'{bd_password}',
     host='localhost'
