@@ -1,0 +1,2019 @@
+#:kivy 2.0.0
+
+Manager:
+    id: sm
+    id: scmanage
+    FirstScreen:
+        name: 'firstscreen'
+    LiblogScreen:
+        name:'liblog'
+    LibRegister:
+        name: 'libregister'
+    LibResetPassword:
+        name: 'libreset'
+    # BookInfo:
+    #     name: 'bookinfo'
+    ReaderLog:
+        name: 'readlog'
+    ReaderProfile:
+        name: 'readprofile'
+    ReadResetPassword:
+        name: 'readreset'
+    ReadRegister:
+        name: 'readregister'
+    ReadSearchBook:
+        name: 'readsearch'
+    ReadedBooks:
+        name: 'readedbooks'
+    # AddReadedBook:
+    #     name: 'trueadd'
+    FavoriteBooks:
+        name:'favoritebooks'
+    Wallet:
+        name:'wallet'
+    BorrowBook:
+        name: 'borrowbook'
+    ReturnBook:
+        name: 'return_book'
+    BookInfRead:
+        name: 'readbookinfo'
+    ListBorrowedReader:
+        name: 'listborrowed'
+    NewSearch:
+        name: 'newsearch'
+    YearSearch:
+        name: 'yearsearch'
+    AllBooks:
+        name: 'allbooks'
+    BorrowBook2:
+        name: 'borrowbook2'
+    BookInfRead2:
+        name: 'readbookinfo2'
+    BookInfRead3:
+        name: 'readbookinfo3'
+    BookInfRead4:
+        name: 'readbookinfo4'
+    AboutLib:
+        name: 'aboutlib'
+    
+
+    LibProfile:
+        name: 'libprofile'
+    ListofReaders:
+        name: 'listofreaders'
+    AboutReader:
+        name: 'aboutreader'
+    ReturnBook2:
+        name: 'libreturn'
+    # LookReader:
+    #     name: 'lookreader'
+    # Libreaderserch:
+    #     name: 'libreaderserch'
+    
+
+    Verification:
+        name:"verification"
+    LibSearchBook:
+        name: 'libsearchbook'
+    NewSearch2:
+        name: 'newsearch2'
+    
+    ReserveBook:
+        name: 'reservebook'
+    YearSearch2:
+        name: 'yearsearch2'
+    BookInfRead7: 
+        name: 'bookinf7'
+    BookInfRead5:
+        name: 'readbookinfo5'
+    LibAboutLib:
+        name: 'libaboutlib'
+    LibReserved:
+        name: 'libreserved'
+    Verification2:
+        name: 'verification2'
+    BookInfRead8:
+        name: 'readbookinf8'
+
+
+
+<FirstScreen>:
+
+    MDLabel:
+        text: 'InLibrary'
+        pos_hint: {"center_x": 0.5,"center_y":.9}
+        halign: 'center'
+        theme_text_color: 'Custom'
+        text_color: 0,0,1,1
+        font_size: 30
+        font_name: 'fonts/header.ttf'
+
+    Image:
+        source: "images/books.png"
+        pos_hint: {'center_x':.5,'center_y':.7}
+        size_hint: None,None 
+        size: 300,300
+
+    MDLabel:
+        text: 'Welcome to InLibrary!'
+        pos_hint: {"center_x": 0.5,"center_y": .5}
+        halign: 'center'
+        theme_text_color: 'Custom'
+        text_color: 0,0,1,1
+        font_size: 26
+        font_name:'fonts/welcome.ttf'
+        
+    
+
+
+    MDFillRoundFlatIconButton:
+        text: 'Sign In as a Librarian'
+        md_bg_color: 1,1,1,1
+        theme_text_color: 'Custom'
+        text_color: 55/255,69/255,191/255,1
+        pos_hint: {'center_x':.5,'center_y':.40}
+        icon: 'library'
+        icon_color: 55/255,69/255,191/255,1
+        font_size: 20
+        elevation: 25
+        on_press: root.left()
+
+    MDFillRoundFlatIconButton:
+        text: 'Sign  In as a  Reader'
+        md_bg_color: [1,1,1,1]
+        theme_text_color: 'Custom'
+        text_color: 55/255,69/255,191/255,1
+        pos_hint: {'center_x':.5,'center_y':.30}
+        icon: 'book-account'
+        icon_color: 55/255,69/255,191/255,1
+        font_size: 20
+        elevation: 25
+        on_press: root.rleft()
+        #readerlog rprofile book_search
+
+    MDFillRoundFlatIconButton:
+        text: 'Reader Sign Up'
+        md_bg_color: 1,1,1,1
+        theme_text_color: 'Custom'
+        text_color: 55/255,69/255,191/255,1
+        pos_hint: {'center_x':.5,'center_y':.20}
+        icon: 'account-plus'
+        icon_color: 55/255,69/255,191/255,1
+        font_size: 20
+        elevation: 25
+        on_press: root.readreg()
+    
+    MDFillRoundFlatIconButton:
+        text: 'Librarian Sign Up'
+        md_bg_color: 1,1,1,1
+        theme_text_color: 'Custom'
+        text_color: 55/255,69/255,191/255,1
+        pos_hint: {'center_x':.5,'center_y':.10}
+        icon: 'account-cowboy-hat'
+        icon_color: 55/255,69/255,191/255,1
+        font_size: 20
+        elevation: 25
+        on_press: root.libreg()
+
+
+
+<LiblogScreen>:
+    
+    FloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        Image:
+            source: "images/librarian.png"
+            # size_hint: None,None
+            # size: 300,300
+            size_hint: (.4, .4)
+            pos_hint: {"center_x": .5, "center_y": .78}
+        MDLabel:
+            id: libwelcome
+            text: "Welcome, Dear Librarian!"
+            pos_hint: {"center_x": .5, "center_y": .62}
+            halign: "center"
+            bold: True
+            font_style: "H5"
+        MDLabel:
+            text: "Login to continue."
+            pos_hint: {"center_x": .5, "center_y": .58}
+            halign: "center"
+            font_style: "Caption"
+        MDTextField:
+        
+            hint_text: "Email"
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .5}
+            icon_right: "email"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: lib_email
+        MDTextField:
+            hint_text: "Password"
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .4}
+            icon_right: "lock"
+            password: True
+            icon_right_color: 156/255,45/255,230/255,1
+            id: lib_password
+        MDTextButton:
+            text: "Redefine password."
+            pos_hint: {"center_x": .5, "center_y": .33}
+            on_release: root.reset()
+        MDFillRoundFlatIconButton:
+            text: "Sign In"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            pos_hint: {"center_x": .5, "center_y": .23}
+            
+            icon: "login"
+            on_release:  root.loglib()
+        
+
+
+
+<LibRegister>:
+    FloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: 'Register as a Librarian'
+            font_size: 18
+            bold: True
+            pos_hint: {"center_x": .5, "center_y": .75}
+            halign: "center"    
+        MDLabel:
+            text: "Enter your data"
+            font_size: 18
+            bold: True
+            pos_hint: {"center_x": .5, "center_y": .65}
+            halign: "center"
+            id: label_register2
+        MDTextField:
+            hint_text: "Email"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            size_hint_x: .8
+            icon_right: "email"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: email_register2
+        MDTextField:
+            hint_text: "Password"
+            pos_hint: {"center_x": .5, "center_y": .4}
+            size_hint_x: .8
+            icon_right: "lock"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: password_register2
+        MDTextField:
+            hint_text: "Confirm Password"
+            pos_hint: {"center_x": .5, "center_y": .3}
+            size_hint_x: .8
+            icon_right: "lock"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: password_register_confirm2
+        MDRaisedButton:
+            text: "Submit"
+            font_size: 17
+            pos_hint: {"center_x": .5, "center_y": .17}
+            md_bg_color: 0.18, 0.53, 1, 1
+            text_color: 1, 1, 1, 1
+            on_release: root.submit()
+
+
+
+
+<LibResetPassword>:
+    FloatLayout:
+        orientation: "vertical"
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: "Send E-mail to reset password."
+            font_size: 18
+            bold: True
+            pos_hint: {"center_x": .5, "center_y": .65}
+            halign: "center"
+            id: text_redefined
+        MDTextField:
+            hint_text: "Email"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            size_hint_x: .8
+            icon_right: "email"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: email_confirm
+        MDRaisedButton:
+            text: "Submit"
+            font_size: 17
+            pos_hint: {"center_x": .5, "center_y": .4}
+            md_bg_color: 0.18, 0.53, 1, 1
+            text_color: 1, 1, 1, 1
+            on_release: root.send_email_confirm()
+
+
+
+
+<ReaderProfile>:
+    MDToolbar:
+        id: tooltitle
+        pos_hint: {"top": 1}
+        elevation: 10
+        title: 'InLibrary'
+        left_action_items: [['menu',lambda x: da.set_state('toggle')]]
+        right_action_items: [["exit-to-app", lambda x: root.callback()]]
+        elevation: 12
+        font_name:'fonts/welcome.ttf'
+        size_hint: 1, .1
+        md_bg_color: [156/255,45/255,230/255,1]
+
+    MDNavigationLayout:
+        ScreenManager:
+            id: scrmng 
+            MDScreen:
+                MDFloatLayout:
+                    
+                    ScrollView:
+                        pos_hint: {'top':.9}
+                        size: self.size
+                        
+                        GridLayout:                        
+                            size_hint_y: None
+                            height: self.minimum_height + 100
+                            width: self.minimum_width 
+                            cols: 2
+                            spacing: '8dp'
+                            padding: '10dp'
+                            id : readgrid
+
+        MDNavigationDrawer:
+            id: da
+            screen_manager: scrmng 
+            nav_drawer: da
+            BoxLayout:
+                orientation: 'vertical'
+                
+
+                MDLabel:
+                    text: 'Reader Menu'
+                    font_style: 'H1'
+                    font_size: 25
+                    halign: 'center'
+                    size_hint_y: .1
+
+                ScrollView:
+                    size_hint_y: .9
+                      
+                    MDList:
+                        id: readeslist
+
+                        OneLineIconListItem:
+                            text: 'Search for the Book'
+                            on_release: root.search_book()
+                            IconLeftWidget:
+                                icon: 'book-search-outline'
+
+                        OneLineIconListItem:
+                            text: 'The Readed Books'
+                            on_release: root.readed_books()
+                            IconLeftWidget:
+                                icon: 'playlist-check'                           
+
+                        OneLineIconListItem:
+                            text: 'Favorite Books'
+                            on_release: root.favorites()
+                            IconLeftWidget:
+                                icon: 'heart-outline'  
+
+                        OneLineIconListItem:
+                            text: 'Wallet'
+                            on_release: root.wallet()
+                            IconLeftWidget:
+                                icon: 'wallet-outline'
+
+                        OneLineIconListItem:
+                            text: 'Borrow the Book'
+                            on_release: root.borrow()
+                            IconLeftWidget:
+                                icon: 'book-clock-outline'
+
+                        OneLineIconListItem:
+                            text: 'Return the Book'
+                            on_release: root.returnbook()
+                            IconLeftWidget:
+                                icon: 'book-arrow-left-outline'
+                        
+                        OneLineIconListItem:
+                            text: 'The Borrowed Books'
+                            on_release: root.borrowed_list()
+                            IconLeftWidget:
+                                icon: 'book-marker-outline'
+                        
+                        OneLineIconListItem:
+                            text: 'All Books'
+                            on_release: root.all_books()
+                            IconLeftWidget:
+                                icon: 'database-outline'
+
+                        OneLineIconListItem:
+                            text: 'About InLibrary'
+                            on_release: root.aboutlib()
+                            IconLeftWidget:
+                                icon: 'information-outline'
+
+
+<ReadResetPassword>:
+    FloatLayout:
+        orientation: "vertical"
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: "Send E-mail to reset password."
+            font_size: 18
+            bold: True
+            pos_hint: {"center_x": .5, "center_y": .65}
+            halign: "center"
+            id: text_redefined
+        MDTextField:
+            hint_text: "Email"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            size_hint_x: .8
+            icon_right: "email"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: email_confirm
+        MDRaisedButton:
+            text: "Submit"
+            font_size: 17
+            pos_hint: {"center_x": .5, "center_y": .4}
+            md_bg_color: 0.18, 0.53, 1, 1
+            text_color: 1, 1, 1, 1
+            on_release: root.send_email_confirm()
+
+
+    
+<ReaderLog>:
+    FloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        Image:
+            source: "images/user.png"
+            # size_hint: None,None
+            # size: 300,300
+            size_hint: (.4, .4)
+            pos_hint: {"center_x": .5, "center_y": .78}
+        MDLabel:
+            id: readwelcome
+            text: "Welcome, Dear Reader!"
+            pos_hint: {"center_x": .5, "center_y": .62}
+            halign: "center"
+            bold: True
+            font_style: "H5"
+        MDLabel:
+            text: "Login to continue."
+            pos_hint: {"center_x": .5, "center_y": .58}
+            halign: "center"
+            font_style: "Caption"
+        MDTextField:
+        
+            hint_text: "Email"
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .5}
+            icon_right: "email"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: read_email
+        MDTextField:
+            hint_text: "Password"
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .4}
+            icon_right: "lock"
+            password: True
+            icon_right_color: 156/255,45/255,230/255,1
+            id: read_password
+        MDTextButton:
+            text: "Redefine password."
+            pos_hint: {"center_x": .5, "center_y": .33}
+            on_release: root.reset()
+        MDFillRoundFlatIconButton:
+            text: "Sign In"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            pos_hint: {"center_x": .5, "center_y": .23}
+            
+            icon: "login"
+            on_release: root.sign_in()
+        
+
+
+
+<ReadRegister>:
+    FloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: 'Register as a Reader'
+            font_size: 18
+            bold: True
+            pos_hint: {"center_x": .5, "center_y": .75}
+            halign: "center"    
+        MDLabel:
+            text: "Enter your data"
+            font_size: 18
+            bold: True
+            pos_hint: {"center_x": .5, "center_y": .65}
+            halign: "center"
+            id: label_register
+        MDTextField:
+            hint_text: "Email"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            size_hint_x: .8
+            icon_right: "email"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: email_register
+        MDTextField:
+            hint_text: "Password"
+            pos_hint: {"center_x": .5, "center_y": .4}
+            size_hint_x: .8
+            icon_right: "lock"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: password_register
+        MDTextField:
+            hint_text: "Confirm Password"
+            pos_hint: {"center_x": .5, "center_y": .3}
+            size_hint_x: .8
+            icon_right: "lock"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: password_register_confirm
+        MDRaisedButton:
+            text: "Submit"
+            font_size: 17
+            pos_hint: {"center_x": .5, "center_y": .17}
+            md_bg_color: 0.18, 0.53, 1, 1
+            text_color: 1, 1, 1, 1
+            on_release: root.check()
+
+
+
+
+# <BookInfo>:
+    # MDFloatLayout:
+
+    #     MDToolbar:
+    #         pos_hint: {"top": 1}
+    #         left_action_items: [["arrow-left", lambda x: root.callback()]]
+    #         specific_text_color: 156/255,45/255,230/255,1
+    #         md_bg_color: 1, 1, 1, 1
+
+    #     MDCard:
+    #         orientation: 'vertical'
+    #         size_hint: .65,.55
+    #         elevation: 8
+    #         padding: 15
+    #         border_radius: 20
+    #         radius: [15]
+    #         pos_hint: {"center_x": 0.5,"center_y": 0.65}
+    #         Image:
+    #             source: img 
+    #             size_hint_y: .7
+    #             allow_strech: True
+    #             keep_ratio: False
+    #         MDLabel:
+    #             size_hint_y: .1
+    #             text: 
+    #             halign: 'center'
+    #             font_size: 15
+    #         MDLabel:
+    #             size_hint_y: .1
+    #             text: 
+    #             halign: 'center'
+    #             font_size: 15
+    #         MDLabel:
+    #             size_hint_y: .1
+    #             text: 
+    #             halign: 'center'
+    #             font_size: 15
+
+    #     MDFillRoundFlatIconButton:
+    #         text: "Buy"
+    #         font_size: 20
+    #         elevation: 8
+    #         theme_text_color: "Custom"
+    #         text_color: 254/255.0, 254/255.0, 254/255.0, 1
+    #         md_bg_color: 0.18, 0.53, 1, 1
+    #         pos_hint: {"center_x": .5, "center_y": .12}
+    #         icon: "shopping-outline"
+    #         on_release: root.buy()  
+
+<ReadSearchBook>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: 'Fill one of the fields to search: '
+            font_size: 20
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            pos_hint: {"center_x":.5,"center_y":.87}
+            halign: 'center'
+        MDTextField:
+            hint_text: "Author"
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .75}
+            icon_right: "face"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: readauthor
+        MDTextField:
+            hint_text: "Year of Publication"
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .68}
+            icon_right: "calendar-month-outline"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: readyear
+        MDTextField:
+            hint_text: "Name"
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .61}
+            icon_right: "book-outline"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: readbookname
+        MDRaisedButton:
+            text: "SEARCH"
+            md_bg_color: 156/255,45/255,230/255,1
+            pos_hint: {"center_x": 0.5,"center_y": 0.52}
+            on_release: root.search()
+
+# <FavoriteBooks>:
+#     MDFloatLayout:
+#         MDToolbar:
+#             pos_hint: {"top": 1}
+#             left_action_items: [["arrow-left", lambda x: root.callback()]]
+#             specific_text_color: 156/255,45/255,230/255,1
+#             md_bg_color: 1, 1, 1, 1
+#             size_hint_y: .1
+#         MDLabel:
+#             #size_hint_y: .1
+#             text: 'Favorite books'
+#             font_size: 20
+#             theme_text_color: 'Custom'
+#             text_color: 156/255,45/255,230/255,1
+#             pos_hint: {"center_y":.95}
+#             halign: 'center'
+#         ScrollView:
+#             size_hint_y: .5
+#             pos_hint:{'center_x':.5,'center_y':.4}
+#             MDList:
+#                 id: fav_books
+#         MDTextField:
+#             hint_text: "Book name"
+#             size_hint_x: .8
+#             size_hint_y: .1
+#             pos_hint: {"center_x": .5}
+#             icon_right: "book-plus-outline"
+#             icon_right_color: 156/255,45/255,230/255,1
+#             id: favplus
+
+#         MDFillRoundFlatIconButton:
+            
+#             text: "Add"
+#             font_size: 20
+#             elevation: 8
+#             theme_text_color: "Custom"
+#             text_color: 254/255.0, 254/255.0, 254/255.0, 1
+#             pos_hint: {"center_x": .5,"center_y":.1}
+#             icon: "plus"
+#             on_release: root.add_read_book()
+                
+                
+        
+
+
+
+# <ReadedBooks>:
+#     MDFloatLayout:
+#         MDToolbar:
+#             pos_hint: {"top": 1}
+#             left_action_items: [["arrow-left", lambda x: root.callback()]]
+#             specific_text_color: 156/255,45/255,230/255,1
+#             md_bg_color: 1, 1, 1, 1
+#             size_hint_y: .1
+#         MDLabel:
+#             text: 'List of the readed books:'
+#             pos_hint: {"center_x": 0.5,"center_y":.9}
+#             halign: 'center'
+#             theme_text_color: 'Custom'
+#             text_color: 156/255,45/255,230/255,1
+#             font_size: 22
+#             size_hint_y: .1
+            
+        
+            
+#         MDList:
+#             size_hint_y: .6
+#             # pos_hint: {"center_x": 0.5,"center_y": 0.8}
+#             id: 'readedbookslist'
+#             OneLineIconListItem:
+#                 text: 'Return the Book'
+#                 IconLeftWidget:
+#                     icon: 'book-arrow-left-outline'
+#             OneLineIconListItem:
+#                 text: 'Return the Book'
+#                 IconLeftWidget:
+#                     icon: 'book-arrow-left-outline'
+#         MDTextField:
+#             hint_text: "Book name"
+#             size_hint_x: .8
+#             size_hint_y: .1
+#             pos_hint: {"center_x": .5}
+#             icon_right: "book-plus-outline"
+#             icon_right_color: 156/255,45/255,230/255,1
+#             id: readedplus
+#         MDFillRoundFlatIconButton:
+#             size_hint_y: .1
+#             text: "Add"
+#             font_size: 20
+#             elevation: 8
+#             theme_text_color: "Custom"
+#             text_color: 254/255.0, 254/255.0, 254/255.0, 1
+#             pos_hint: {"center_x": .5}
+#             icon: "plus"
+#             on_release: root.add_read_book()
+        
+
+                
+        
+
+# <AddReadedBook>:
+#     MDFloatLayout:
+#         MDToolbar:
+#             pos_hint: {"top": 1}
+#             left_action_items: [["arrow-left", lambda x: root.callback()]]
+#             specific_text_color: 156/255,45/255,230/255,1
+#             md_bg_color: 1, 1, 1, 1
+#             size_hint_y: .1
+#         MDLabel:
+#             text: 'Adding book'
+#             pos_hint: {"center_x": 0.5,"center_y":.73}
+#             halign: 'center'
+#             theme_text_color: 'Custom'
+#             text_color: 156/255,45/255,230/255,1
+#             font_size: 22
+
+#         MDTextField:
+#             hint_text: "Book name"
+#             size_hint_x: .8
+#             pos_hint: {"center_x": .5, "center_y": .68}
+#             icon_right: "book-plus-outline"
+#             icon_right_color: 156/255,45/255,230/255,1
+#             id: readedplus
+#         MDFillRoundFlatIconButton:
+#             text: "Add"
+#             font_size: 20
+#             elevation: 8
+#             theme_text_color: "Custom"
+#             text_color: 254/255.0, 254/255.0, 254/255.0, 1
+#             pos_hint: {"center_x": .5, "center_y": .5}
+#             icon: "plus"
+#             on_release: root.add_read_book()
+
+
+<Wallet>:
+    FloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: 'Wallet'
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        MDLabel:
+            text: 'Current Balance:'
+            pos_hint: {"center_x": 0.5,"center_y":.83}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 0, 102/255, 1,1
+            font_size: 22
+        MDLabel:
+            id: wally
+            text: ''
+            pos_hint: {"center_x": 0.5,"center_y":.75}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 1, 51/255,0,1
+            font_size: 22
+        
+        MDLabel:
+            text: 'Top up balance:'
+            pos_hint: {"center_x": 0.5,"center_y":.65}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 0,1,0,1
+            font_size: 22
+        MDTextField:
+            hint_text: "Amount"
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .57}
+            icon_right: "currency-usd-circle-outline"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: filldollar
+        MDFillRoundFlatIconButton:
+            text: "Submit"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            pos_hint: {"center_x": .5, "center_y": .45}
+            icon: "check-outline"
+            on_release: root.fillbalance()
+        
+
+
+<BorrowBook>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: 'Borrow the Book'
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        MDLabel:
+            text: 'Book name: '
+            pos_hint: {"center_x": 0.5,"center_y":.73}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 20
+        MDTextField:
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .67}
+            icon_right: "book-clock-outline"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: borrow_name
+        MDLabel:
+            text: 'Date:'
+            pos_hint: {"center_x": 0.5,"center_y":.58}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        MDCard:
+            md_bg_color: 1,1,204/255,1
+            size_hint: .8,.1
+            pos_hint:{"center_x":.5,"center_y":.5}
+            MDLabel:
+                id: dateborrow
+                text: ''
+                halign: 'center'
+                theme_text_color: 'Custom'
+                text_color: 51/255, 51/255, 1,1
+                font_size: 23
+        MDFillRoundFlatIconButton:
+            text: "Pick data"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            pos_hint: {"center_x": .5, "center_y": .37}
+            icon: "calendar-month-outline"
+            on_release: root.calendar()
+        MDFillRoundFlatIconButton:
+            text: "Submit"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            pos_hint: {"center_x": .5, "center_y": .27}
+            icon: "check-outline"
+            on_release: root.submit()
+        
+        
+        
+<ReturnBook>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: 'Return the Book'
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        MDLabel:
+            text: 'Book name: '
+            pos_hint: {"center_x": 0.5,"center_y":.7}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 0,1,0,1
+            font_size: 20
+        MDTextField:
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .65}
+            icon_right: "book-clock-outline"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: return_name
+        MDFillRoundFlatIconButton:
+            text: "Return"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            pos_hint: {"center_x": .5, "center_y": .4}
+            icon: "check-outline"
+            on_release: root.returnb()
+
+        
+        
+<BookInfRead>:
+    MDFloatLayout:
+
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+
+        MDCard:
+            orientation: 'vertical'
+            size_hint: .65,.55
+            elevation: 8
+            padding: 15
+            border_radius: 20
+            radius: [15]
+            pos_hint: {"center_x": 0.5,"center_y": 0.65}
+            Image:
+                id: bookimage
+                size_hint_y: .7
+                allow_strech: True
+                keep_ratio: False
+            MDLabel:
+                id: bookname
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookauthor
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookyear
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookprice
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+        
+        MDFillRoundFlatIconButton:
+            text: "Borrow"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            md_bg_color: 0.18, 0.53, 1, 1
+            pos_hint: {"center_x": .5, "center_y": .25}
+            icon: "book-clock-outline"
+            on_release: root.bor() 
+
+        MDFillRoundFlatIconButton:
+            text: "Buy"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            md_bg_color: 0.18, 0.53, 1, 1
+            pos_hint: {"center_x": .5, "center_y": .12}
+            icon: "shopping-outline"
+            on_release: root.buy() 
+
+<BookInfRead2>:
+    MDFloatLayout:
+
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+
+        MDCard:
+            orientation: 'vertical'
+            size_hint: .65,.55
+            elevation: 8
+            padding: 15
+            border_radius: 20
+            radius: [15]
+            pos_hint: {"center_x": 0.5,"center_y": 0.65}
+            Image:
+                id: bookimage2
+                size_hint_y: .7
+                allow_strech: True
+                keep_ratio: False
+            MDLabel:
+                id: bookname2
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookauthor2
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookyear2
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookprice2
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+        
+        MDFillRoundFlatIconButton:
+            text: "Borrow"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            md_bg_color: 0.18, 0.53, 1, 1
+            pos_hint: {"center_x": .5, "center_y": .25}
+            icon: "book-clock-outline"
+            on_release: root.bor() 
+
+        MDFillRoundFlatIconButton:
+            text: "Buy"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            md_bg_color: 0.18, 0.53, 1, 1
+            pos_hint: {"center_x": .5, "center_y": .12}
+            icon: "shopping-outline"
+            on_release: root.buy()    
+
+
+<BookInfRead3>:
+    MDFloatLayout:
+
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+
+        MDCard:
+            orientation: 'vertical'
+            size_hint: .65,.55
+            elevation: 8
+            padding: 15
+            border_radius: 20
+            radius: [15]
+            pos_hint: {"center_x": 0.5,"center_y": 0.65}
+            Image:
+                id: bookimage3
+                size_hint_y: .7
+                allow_strech: True
+                keep_ratio: False
+            MDLabel:
+                id: bookname3
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookauthor3
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookyear3
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookprice3
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+        
+        MDFillRoundFlatIconButton:
+            text: "Borrow"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            md_bg_color: 0.18, 0.53, 1, 1
+            pos_hint: {"center_x": .5, "center_y": .25}
+            icon: "book-clock-outline"
+            on_release: root.bor() 
+
+        MDFillRoundFlatIconButton:
+            text: "Buy"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            md_bg_color: 0.18, 0.53, 1, 1
+            pos_hint: {"center_x": .5, "center_y": .12}
+            icon: "shopping-outline"
+            on_release: root.buy()  
+
+
+<BookInfRead4>:
+    MDFloatLayout:
+
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+
+        MDCard:
+            orientation: 'vertical'
+            size_hint: .65,.55
+            elevation: 8
+            padding: 15
+            border_radius: 20
+            radius: [15]
+            pos_hint: {"center_x": 0.5,"center_y": 0.65}
+            Image:
+                id: bookimage4
+                size_hint_y: .7
+                allow_strech: True
+                keep_ratio: False
+            MDLabel:
+                id: bookname4
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookauthor4
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookyear4
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookprice4
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+        
+        MDFillRoundFlatIconButton:
+            text: "Borrow"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            md_bg_color: 0.18, 0.53, 1, 1
+            pos_hint: {"center_x": .5, "center_y": .25}
+            icon: "book-clock-outline"
+            on_release: root.bor() 
+
+        MDFillRoundFlatIconButton:
+            text: "Buy"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            md_bg_color: 0.18, 0.53, 1, 1
+            pos_hint: {"center_x": .5, "center_y": .12}
+            icon: "shopping-outline"
+            on_release: root.buy()  
+
+
+
+<ListBorrowedReader>:  
+
+    MDFloatLayout:
+
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        
+        MDLabel:
+            text: 'Borrowed Books'
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        ScrollView:
+            pos_hint: {"top":.8}
+            size_hint: .8,.7
+            MDList:
+                id: readborrowed
+                
+
+
+<NewSearch>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            id: autlabel
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        
+        ScrollView:
+            pos_hint: {"center_x":.5,"center_y":.5}
+            size_hint: .9,.7
+            MDList:
+                id: autorbook
+
+<YearSearch>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            id: yearlabel
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        
+        ScrollView:
+            pos_hint: {"center_x":.5,"center_y":.5}
+            size_hint: .9,.7
+            MDList:
+                id: yearbook
+
+<AllBooks>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: 'All books'
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        ScrollView:
+            pos_hint: {"center_x":.5,"center_y":.5}
+            size_hint: .9,.7
+            MDList:
+                id: allbook
+
+
+<BorrowBook2>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: 'Borrow the Book'
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        MDLabel:
+            text: 'Book name: '
+            pos_hint: {"center_x": 0.5,"center_y":.73}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 20
+        MDTextField:
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .67}
+            icon_right: "book-clock-outline"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: borrow2_name
+        MDLabel:
+            text: 'Date:'
+            pos_hint: {"center_x": 0.5,"center_y":.58}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        MDCard:
+            md_bg_color: 1,1,204/255,1
+            size_hint: .8,.1
+            pos_hint:{"center_x":.5,"center_y":.5}
+            MDLabel:
+                id: date2borrow
+                text: ''
+                halign: 'center'
+                theme_text_color: 'Custom'
+                text_color: 51/255, 51/255, 1,1
+                font_size: 23
+        MDFillRoundFlatIconButton:
+            text: "Pick data"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            pos_hint: {"center_x": .5, "center_y": .37}
+            icon: "calendar-month-outline"
+            on_release: root.calendar()
+        MDFillRoundFlatIconButton:
+            text: "Submit"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            pos_hint: {"center_x": .5, "center_y": .27}
+            icon: "check-outline"
+            on_release: root.submit()
+
+
+<AboutLib>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: 'About InLibrary'
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        MDLabel:
+            text:
+                """InLibrary app is a program 
+                to help readers with finding,
+                borrowing, buying books. And
+                also makes the librarians' job easier."""
+            pos_hint: {"center_x": 0.5,"center_y":.5}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 20
+
+<LibProfile>:
+    MDToolbar:
+        id: libtitle
+        pos_hint: {"top": 1}
+        elevation: 10
+        title: 'InLibrary'
+        left_action_items: [['menu',lambda x: sa.set_state('toggle')]]
+        right_action_items: [["exit-to-app", lambda x: root.callback()]]
+        elevation: 12
+        font_name:'fonts/welcome.ttf'
+        size_hint: 1, .1
+        md_bg_color: [51/255, 204/255, 51/255,1]
+    MDNavigationLayout:
+        ScreenManager:
+            id: scrmng 
+            MDScreen:
+                MDFloatLayout:
+                    
+                    ScrollView:
+                        pos_hint: {'top':.9}
+                        size: self.size
+                        GridLayout:                        
+                            size_hint_y: None
+                            height: self.minimum_height + 100
+                            width: self.minimum_width 
+                            cols: 1
+                            spacing: '8dp'
+                            padding: '30dp'
+                            id : libgrid
+        
+        MDNavigationDrawer:
+            id: sa
+            # screen_manager: scrmng 
+            # nav_drawer: da
+            BoxLayout:
+                orientation: 'vertical'
+                
+
+                MDLabel:
+                    text: 'Librarian Menu'
+                    font_style: 'H1'
+                    font_size: 25
+                    halign: 'center'
+                    size_hint_y: .1
+
+                ScrollView:
+                    size_hint_y: .9
+                      
+                    MDList:
+                        # id: readeslist
+
+                        OneLineIconListItem:
+                            text: 'List of Readers'
+                            on_release: root.list_readers()
+                            IconLeftWidget:
+                                icon: 'account-multiple-outline'
+
+                        OneLineIconListItem:
+                            text: 'List of the Reserved Books'
+                            on_release: root.liblistreserved()
+                            IconLeftWidget:
+                                icon: 'bookshelf'                      
+
+                        
+
+                        OneLineIconListItem:
+                            text: 'Search for the Book'
+                            on_release: root.libsearchbook()
+                            IconLeftWidget:
+                                icon: 'book-search-outline'
+
+                        OneLineIconListItem:
+                            text: 'Reserve the Book'
+                            on_release: root.reserve()
+                            IconLeftWidget:
+                                icon: 'book-lock-outline'
+
+                    
+                        OneLineIconListItem:
+                            text: 'About InLibrary'
+                            on_release: root.aboutlib()
+                            IconLeftWidget:
+                                icon: 'information-outline'
+        
+    
+
+<ListofReaders>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: 'List of Readers:'
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        ScrollView:
+            pos_hint: {"top":.86,"center_x":.5}
+            size_hint: .8,.7
+            MDList:
+                id: listreaders
+        
+
+
+<AboutReader>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: 'About Reader'
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        MDLabel:
+            id: aboutread
+            pos_hint: {"center_x": 0.5,"center_y":.85}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 21/255,209/255,21/255,1
+            font_size: 21
+      
+        MDLabel:
+            text: 'Borrowed:'
+            pos_hint: {"center_x": 0.5,"center_y":.74}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 19
+        ScrollView:
+            size_hint: .7,.3
+            pos_hint: {"top":.72,"center_x":.47}
+            MDList:
+                id: readborrow
+        MDLabel:
+            text: 'Bought:'
+            pos_hint: {"center_x": 0.5,"center_y":.35}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 19
+        ScrollView:
+            size_hint: .7,.3
+            pos_hint: {"top":.33,"center_x":.47}
+            MDList:
+                id: readbought
+        
+
+<ReturnBook2>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: 'Return the Book'
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        MDLabel:
+            text: 'Book name: '
+            pos_hint: {"center_x": 0.5,"center_y":.7}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 0,1,0,1
+            font_size: 20
+        MDTextField:
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .65}
+            icon_right: "book-clock-outline"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: return_name2
+        MDFillRoundFlatIconButton:
+            text: "Return"
+            font_size: 20
+            elevation: 8
+            theme_text_color: "Custom"
+            text_color: 254/255.0, 254/255.0, 254/255.0, 1
+            pos_hint: {"center_x": .5, "center_y": .4}
+            icon: "check-outline"
+            on_release: root.returnb()
+
+
+
+# <LookReader>:
+#     MDFloatLayout:
+#         MDToolbar:
+#             pos_hint: {"top": 1}
+#             left_action_items: [["arrow-left", lambda x: root.callback()]]
+#             specific_text_color: 156/255,45/255,230/255,1
+#             md_bg_color: 250/255, 250/255, 250/255, 1
+#         MDLabel:
+#             text: 'Look for the Reader'
+#             pos_hint: {"center_x": 0.5,"center_y":.95}
+#             halign: 'center'
+#             theme_text_color: 'Custom'
+#             text_color: 156/255,45/255,230/255,1
+#             font_size: 23
+#         MDLabel:
+#             text: 'Fill one of the fields to search: '
+#             font_size: 20
+#             theme_text_color: 'Custom'
+#             text_color: 156/255,45/255,230/255,1
+#             pos_hint: {"center_x":.5,"center_y":.87}
+#             halign: 'center'
+#         MDTextField:
+#             hint_text: "Name"
+#             size_hint_x: .8
+#             pos_hint: {"center_x": .5, "center_y": .75}
+#             icon_right: "face"
+#             icon_right_color: 156/255,45/255,230/255,1
+#             id: readname2
+#         MDTextField:
+#             hint_text: "Surname"
+#             size_hint_x: .8
+#             pos_hint: {"center_x": .5, "center_y": .68}
+#             icon_right: "face"
+#             icon_right_color: 156/255,45/255,230/255,1
+#             id: readsur 
+#         MDRaisedButton:
+#             text: "SEARCH"
+#             md_bg_color: 156/255,45/255,230/255,1
+#             pos_hint: {"center_x": 0.5,"center_y": 0.52}
+#             on_release: root.search()
+
+<Verification>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: 'Verification'
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        MDLabel:
+            text: 'Check your E-mail and write the code'
+            font_size: 16
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            pos_hint: {"center_x":.5,"center_y":.67}
+            halign: 'center'
+        MDTextField:
+            hint_text: "Code"
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .55}
+            icon_right: "key-outline"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: code_verification
+
+        MDRaisedButton:
+            text: "Submit"
+            md_bg_color: 156/255,45/255,230/255,1
+            pos_hint: {"center_x": 0.5,"center_y": .3}
+            on_release: root.submit()
+
+
+<LibSearchBook>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: 'Fill one of the fields to search: '
+            font_size: 20
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            pos_hint: {"center_x":.5,"center_y":.87}
+            halign: 'center'
+        MDTextField:
+            hint_text: "Author"
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .75}
+            icon_right: "face"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: readauthor2
+        MDTextField:
+            hint_text: "Year of Publication"
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .68}
+            icon_right: "calendar-month-outline"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: readyear2
+        MDTextField:
+            hint_text: "Name"
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .61}
+            icon_right: "book-outline"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: readbookname2
+        MDRaisedButton:
+            text: "SEARCH"
+            md_bg_color: 156/255,45/255,230/255,1
+            pos_hint: {"center_x": 0.5,"center_y": 0.52}
+            on_release: root.search()
+
+<NewSearch2>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            id: autlabel
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 20
+        
+        ScrollView:
+            pos_hint: {"center_x":.5,"center_y":.5}
+            size_hint: .9,.7
+            MDList:
+                id: autorbook
+
+<BookInfRead5>:
+    MDFloatLayout:
+
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+
+        MDCard:
+            orientation: 'vertical'
+            size_hint: .65,.55
+            elevation: 8
+            padding: 15
+            border_radius: 20
+            radius: [15]
+            pos_hint: {"center_x": 0.5,"center_y": 0.65}
+            Image:
+                id: bookimage5
+                size_hint_y: .7
+                allow_strech: True
+                keep_ratio: False
+            MDLabel:
+                id: bookname5
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookauthor5
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookyear5
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookprice5
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+        
+<ReserveBook>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: 'Reserve the book'
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        MDLabel:
+            text: 'Name of the Book: '
+            pos_hint: {"center_x": 0.5,"center_y":.8}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        MDTextField:
+            hint_text: "Book name"
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .72}
+            icon_right: "book-arrow-right-outline"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: resbook
+        MDLabel:
+            text: 'Name of Reader: '
+            pos_hint: {"center_x": 0.5,"center_y":.58}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        MDTextField:
+            hint_text: "Reader email"
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .5}
+            icon_right: "account-circle-outline"
+            icon_right_color: 156/255,45/255,230/255,1
+            id: resread
+        MDRaisedButton:
+            text: "Reserve"
+            md_bg_color: 156/255,45/255,230/255,1
+            pos_hint: {"center_x": 0.5,"center_y": 0.3}
+            on_release: root.reservebook()
+            
+            
+<YearSearch2>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            id: yearlabel2
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        
+        ScrollView:
+            pos_hint: {"center_x":.5,"center_y":.5}
+            size_hint: .9,.7
+            MDList:
+                id: yearbook2
+
+<BookInfRead7>:
+
+    MDFloatLayout:
+
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+
+        MDCard:
+            orientation: 'vertical'
+            size_hint: .65,.55
+            elevation: 8
+            padding: 15
+            border_radius: 20
+            radius: [15]
+            pos_hint: {"center_x": 0.5,"center_y": 0.65}
+            Image:
+                id: bookimage7
+                size_hint_y: .7
+                allow_strech: True
+                keep_ratio: False
+            MDLabel:
+                id: bookname7
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookauthor7
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookyear7
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookprice7
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+
+<LibAboutLib>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: 'About InLibrary'
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        MDLabel:
+            text:
+                """InLibrary app is a program 
+                to help readers with finding,
+                borrowing, buying books. And
+                also makes the librarians' job easier."""
+            pos_hint: {"center_x": 0.5,"center_y":.5}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 20
+
+<LibReserved>:
+    MDFloatLayout:
+
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        
+        MDLabel:
+            text: 'Reserved Books'
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        ScrollView:
+            pos_hint: {"top":.8}
+            size_hint: .8,.7
+            MDList:
+                id: listreserved
+
+
+<Verification2>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+        MDLabel:
+            text: 'Verification'
+            pos_hint: {"center_x": 0.5,"center_y":.95}
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            font_size: 23
+        MDLabel:
+            text: 'Check your E-mail and write the code'
+            font_size: 16
+            theme_text_color: 'Custom'
+            text_color: 156/255,45/255,230/255,1
+            pos_hint: {"center_x":.5,"center_y":.6}
+            halign: 'center'
+        MDTextField:
+            hint_text: "Code"
+            size_hint_x: .8
+            pos_hint: {"center_x": .5, "center_y": .51}
+            icon_right: "key-outline"
+            id: code_verification2
+
+        MDRaisedButton:
+            text: "Submit"
+            md_bg_color: 156/255,45/255,230/255,1
+            pos_hint: {"center_x": 0.5,"center_y": .3}
+            on_release: root.submit()
+
+<BookInfRead8>:
+    MDFloatLayout:
+
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 156/255,45/255,230/255,1
+            md_bg_color: 250/255, 250/255, 250/255, 1
+
+        MDCard:
+            orientation: 'vertical'
+            size_hint: .65,.55
+            elevation: 8
+            padding: 15
+            border_radius: 20
+            radius: [15]
+            pos_hint: {"center_x": 0.5,"center_y": 0.65}
+            Image:
+                id: bookimage8
+                size_hint_y: .7
+                allow_strech: True
+                keep_ratio: False
+            MDLabel:
+                id: bookname8
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookauthor8
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookyear8
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
+            MDLabel:
+                id: bookprice8
+                size_hint_y: .1
+                halign: 'center'
+                font_size: 15
