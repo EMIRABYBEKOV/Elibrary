@@ -7,7 +7,7 @@ bd_user = input("Username: ")
 dbname = input("Databasename: ")
 
 postgres = psycopg2.connect(
-    dbname='mydb', 
+    dbname=f'{dbname}', 
     user=f'{bd_user}', 
     password=f'{bd_password}',
     host='localhost'
