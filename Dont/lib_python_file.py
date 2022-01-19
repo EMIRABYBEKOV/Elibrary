@@ -27,9 +27,9 @@ from lib_func import *
 import psycopg2
 from random import randint
 
-db_name = 'mydb'#input("Введите название базы данных: ")
-db_user = 'suluguni'#input("Имя юзера: ")
-db_password = '1234'#input("Введите пароль от Базы Данных: ")
+db_name = input("Databasename: ")
+db_user = input("Username: ")
+db_password = ("Password: ")
 
 
 postgres = psycopg2.connect(
